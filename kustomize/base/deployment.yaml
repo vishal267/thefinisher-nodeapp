@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: thefinisher-nodeapp
+  name: thefinisher-nodeapp
+  namespace: production
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: thefinisher-nodeapp
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: thefinisher-nodeapp
+    spec:
+      containers:
+      - image: vishal267/nodeapp:change-image
+        name: thefinisher-nodeapp
+        imagePullPolicy: Always
+        livenessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /live
+            port: http
+            scheme: HTTP
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 1
+        readinessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /ready
+            port: http
+            scheme: HTTP
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 1
