@@ -43,15 +43,12 @@ jobs:
           push: true
           tags: vishal267/nodeapp:${{ steps.vars.outputs.branch }}-${{ steps.vars.outputs.sha_short }}
       -
-        name: Set up Kustomize environment
-        run: |-
+        name: Set up Kustomize 
+        run: |- 
           curl -sfLo kustomize https://github.com/kubernetes-sigs/kustomize/releases/download/v3.1.0/kustomize_3.1.0_linux_amd64
           chmod u+x ./kustomize
           kustomize version --short
-      -
-        name: Checkout
-        uses: actions/checkout@v3
-      -
+      -  
         name: Update the image and push to github repo
         run: |
           cd kustomize/overlays/production
