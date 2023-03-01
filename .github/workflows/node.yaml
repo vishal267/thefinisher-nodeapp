@@ -6,7 +6,6 @@ jobs:
     env:
       CI_COMMIT_MESSAGE: Continuous Integration Build Artifacts
       CI_COMMIT_AUTHOR: Continuous Integration
-      NODEAPP_DOCKER_REPO: vishal267/nodeapp
     steps:
       -
         name: Checkout
