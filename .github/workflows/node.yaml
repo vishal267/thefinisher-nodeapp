@@ -60,3 +60,5 @@ jobs:
       -
         name: Commit and Push changes
         uses: actions-js/push@master
+        with:
+        github_token: ${{ secrets.CI_TOKEN }}
