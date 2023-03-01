@@ -44,9 +44,10 @@ jobs:
       -
         name: Set up Kustomize 
         run: |- 
-          sudo curl -sfLo kustomize https://github.com/kubernetes-sigs/kustomize/releases/download/v3.1.0/kustomize_3.1.0_linux_amd64
-          sudo chmod u+x ./kustomize
-          sudo kustomize version --short
+          wget https://github.com/kubernetes-sigs/kustomize/releases/download/v3.1.0/kustomize_3.1.0_linux_amd64
+          mv kustomize_3.1.0_linux_amd64 kustomize
+          chmod u+x ./kustomize
+          kustomize version --short
       -  
         name: Update the image and push to github repo
         run: |
