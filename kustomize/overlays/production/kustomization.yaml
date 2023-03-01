@@ -3,3 +3,7 @@ kind: Kustomization
 
 resources:
 - ../../base
+images:
+- name: vishal267/nodeapp
+  newName: vishal267/nodeapp
+  newTag: main-0b19556
