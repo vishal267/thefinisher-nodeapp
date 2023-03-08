@@ -2,7 +2,7 @@ name: nodeapp-workflow
 on: push
 jobs:
   build_deploy:
-    runs-on: ubuntu-18.04
+    runs-on: self-hosted
     env:
       CI_COMMIT_MESSAGE: Continuous Integration Build Artifacts
       CI_COMMIT_AUTHOR: Continuous Integration
